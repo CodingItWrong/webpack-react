@@ -1,12 +1,13 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-const Home = () => {
-  return <div>React Application</div>;
-};
+import App from './App';
 
 const container = document.createElement('div');
 document.body.appendChild(container);
-
 const root = ReactDOM.createRoot(container);
 
-root.render(<Home />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
