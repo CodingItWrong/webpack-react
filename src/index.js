@@ -1,16 +1,12 @@
-import _ from 'lodash';
-import './style.css';
+import ReactDOM from 'react-dom/client';
 
-if (process.env.NODE_ENV !== 'production') {
-  console.log('Looks like we are in development mode!');
-}
+const Home = () => {
+  return <div>React Application</div>;
+};
 
-function component() {
-  const element = document.createElement('div');
+const container = document.createElement('div');
+document.body.appendChild(container);
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+const root = ReactDOM.createRoot(container);
 
-  return element;
-}
-
-document.body.appendChild(component());
+root.render(<Home />);
