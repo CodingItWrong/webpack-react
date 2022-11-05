@@ -4,10 +4,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['prettier', 'import'],
+  plugins: ['prettier', 'import', 'cypress'],
   parser: '@babel/eslint-parser',
   env: {
     browser: true,
+    'cypress/globals': true,
     es6: true,
     node: true,
   },
