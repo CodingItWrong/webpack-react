@@ -8,7 +8,8 @@
     "start": "webpack server --open --config webpack.dev.js",
     "lint": "eslint src",
     "cypress": "cypress open",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js && cp _redirects dist",
+    "deploy": "yarn build && netlify deploy --prod"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
