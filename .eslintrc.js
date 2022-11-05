@@ -4,7 +4,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', 'import'],
   parser: '@babel/eslint-parser',
   env: {
     browser: true,
@@ -21,9 +21,15 @@ module.exports = {
     },
   },
   rules: {
+    'import/order': ['warn', {alphabetize: {order: 'asc'}}], // group and then alphabetize lines - https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
+    'no-duplicate-imports': 'error',
     'prettier/prettier': 'error',
     'react/jsx-uses-react': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'sort-imports': [
+      'warn',
+      {ignoreDeclarationSort: true, ignoreMemberSort: false},
+    ], // alphabetize named imports - https://eslint.org/docs/rules/sort-imports
   },
 };
