@@ -1,19 +1,24 @@
 const path = require('path');
 
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
     app: './src/index.js',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Production',
+    new HtmlWebpackPlugin({template: './src/index.html'}),
+    new CopyPlugin({
+      patterns: [{from: 'public', to: '.'}],
     }),
+    // MiniCssExtractPlugin configured via child configs
   ],
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     clean: true,
   },
   resolve: {
@@ -28,7 +33,7 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
