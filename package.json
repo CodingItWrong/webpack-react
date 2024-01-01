@@ -12,7 +12,7 @@
     "build": "webpack --config webpack.prod.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.5",
+    "@babel/core": "^7.23.7",
     "@babel/eslint-parser": "^7.22.11",
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-react": "^7.23.3",
